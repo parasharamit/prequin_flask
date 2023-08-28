@@ -1,0 +1,21 @@
+service_name: preqin
+log_level: DEBUG
+
+settings:
+  ip: 0.0.0.0
+  port: 8000
+
+path:
+  log_path: "./var/"
+
+'SECRET_KEY': '1234'
+
+postgres_credentials:
+  'host': '127.0.0.1'
+  'database': "prequin_db"
+  'user': "postgres"
+  'password': "Abcd@1234"
+
+
+
+
