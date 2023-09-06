@@ -1,7 +1,14 @@
-2023-08-28 14:54:57 DEBUG Logger Initialized
-2023-08-28 14:55:38 DEBUG Logger Initialized
-2023-08-28 14:55:50 DEBUG Logger Initialized
-2023-08-28 14:57:29 DEBUG Logger Initialized
-2023-08-28 14:58:03 DEBUG Logger Initialized
-2023-08-28 14:58:10 DEBUG Logger Initialized
-2023-08-28 14:58:12 DEBUG Logger Initialized
+2023-09-06 14:18:48 DEBUG Logger Initialized
+2023-09-06 14:39:06 DEBUG Logger Initialized
+2023-09-06 14:39:12 DEBUG Logger Initialized
+2023-09-06 14:40:02 DEBUG Logger Initialized
+2023-09-06 14:40:09 ERROR __Error__name 'x' is not defined
+Traceback (most recent call last):
+  File "/home/afghani/afghani_root_dir/JobSearch/companies_interviewed/Preqin/preqin_flask/Scripts/main.py", line 53, in algebraic_calculator
+    calc_obj = calc.AlgebraicCalculation(data[x], data[y])
+                                              ^
+NameError: name 'x' is not defined
+2023-09-06 14:40:22 DEBUG Logger Initialized
+2023-09-06 14:48:42 DEBUG Logger Initialized
+2023-09-06 14:56:20 DEBUG Logger Initialized
+2023-09-06 14:58:02 DEBUG Logger Initialized

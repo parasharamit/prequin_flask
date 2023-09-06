@@ -47,6 +47,9 @@ $ pip install -r requirements.txt
 | |────README.md
 | |────requirements.txt
 | |────__root__.py
+| |────unit_testing/
+| | |────__init__.py
+| | |────test_cal.py
 | |────run_flasked_api.py
 
 ```
@@ -55,6 +58,8 @@ $ pip install -r requirements.txt
 To develop RESTful APIs using that can be utilized by mobile and web applications. The applications will satisfy the following user stories:
 
 ● User should be able to login or sign up using his phone number (no OTP or verification code required).
+● User can calculate simple algebraic calculations of two variables viz. x and y, for eg. x + y.
+
 
 
 
@@ -86,3 +91,10 @@ Postgres (local)
 **Descriptions of APIs and endpoints:**
 1. Sign-up with phone number and password on sign-up page `0.0.0.0:8000/signup`
 2. GET Method to fetch result GET `0.0.0.0:8000/`
+3. POST Method to calculate algebraic calculations (viz, add, subtract, multiply, divide)  POST `0.0.0.0:8000/calculate` with JSON request body as  
+`{
+    "operation": "add",
+    "x": 20,
+    "y": 30
+}`
+4. Test cases can be run : `python -m unittest /unit_testing/test_cal.py`

@@ -13,6 +13,7 @@ from werkzeug.utils import secure_filename
 import os
 from flask import request, render_template, jsonify
 from Scripts.Utility import utils
+from Scripts.Services.Calculation import calc
 
 
 exception_message = '{"status":False, "status":"Server error, please contact your administrator"}'
@@ -22,7 +23,7 @@ preqin_main = Blueprint("preqin_main", __name__)
 
 
 @preqin_main.route("/", methods=["GET", "POST"])
-def function_name():
+def random_calculation():
     if request.method == "GET":
         try:
 
@@ -38,6 +39,38 @@ def function_name():
 
             return {
                 "data": json.dumps(random_float_list)
+            }
+
+        except Exception as e:
+            utils.logger.exception("__Error__" + str(e))
+
+
+@preqin_main.route("/calculate", methods=["GET", "POST"])
+def algebraic_calculator():
+    if request.method == "POST":
+        try:
+            data = request.get_json()
+            calc_obj = calc.AlgebraicCalculation()
+            x, y = float(data['x']), float(data['y'])
+
+            res = {}
+
+            match data['operation'].lower():
+                case "add":
+                    res['val'] = calc_obj.add(x, y)
+                case "subtract":
+                    res['val'] = calc_obj.subtract(x, y)
+                case "multiply":
+                    res['val'] = calc_obj.multiply(x, y)
+                case "divide":
+                    res['val'] = calc_obj.divide(x, y)
+                case _:
+                    res["message"] = "Operation Not Matched"
+                    res["val"] = None
+                    print(res['message'])
+
+            return {
+                "data": json.dumps(res['val'])
             }
 
         except Exception as e:
